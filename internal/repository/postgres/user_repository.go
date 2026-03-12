@@ -5,6 +5,7 @@ import (
 	"database/sql"
 
 	"github.com/EdwardShiroki/webstore/internal/domain/user"
+	"github.com/google/uuid"
 )
 
 type UserRepository struct {
@@ -34,7 +35,7 @@ func (r *UserRepository) Create(ctx context.Context, user *user.User) error {
 	return err
 }
 
-func (r *UserRepository) GetByID(ctx context.Context, id int64) (*user.User, error) {
+func (r *UserRepository) GetByID(ctx context.Context, id uuid.UUID) (*user.User, error) {
 	query := `SELECT id, login, password_hash, role, created_at FROM users WHERE id = $1`
 	row := r.db.QueryRowContext(ctx, query, id)
 	var u user.User
