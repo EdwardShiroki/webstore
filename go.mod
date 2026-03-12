@@ -1,8 +1,12 @@
 module github.com/EdwardShiroki/webstore
 
-go 1.25.5
+go 1.25.0
 
-require github.com/gin-gonic/gin v1.12.0
+require (
+	github.com/gin-gonic/gin v1.12.0
+	github.com/google/uuid v1.3.0
+	github.com/lib/pq v1.11.2
+)
 
 require (
 	github.com/bytedance/gopkg v0.1.3 // indirect
